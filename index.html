@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Авторизация</title>
+    <link rel="stylesheet" href="style.css"> 
+</head>
+<body>
+    <div class="login-container">
+        <h2>Авторизация</h2>
+        <form id="loginForm" onsubmit="handleLogin(event)">
+            <label for="username">Логин:</label>
+            <input type="text" id="username" required>
+
+            <label for="password">Пароль:</label>
+            <input type="password" id="password" required>
+
+            <button type="submit">Войти</button>
+            <p>Нет аккаунта? <a href="registration.html">Зарегистрируйтесь</a></p>
+        </form>
+        <p id="error-message" style="color: red; display: none;"></p>
+        <p id="success-message" style="color: green; display: none;"></p>
+    </div>
+    <script>
+        function handleLogin(event) {
+            event.preventDefault();
+
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            const errorMessage = document.getElementById('error-message');
+            const successMessage = document.getElementById('success-message');
+
+            // Пример отправки данных на сервер
+            fetch('http://127.0.0.1:5500/index.html', { 
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ username, password }) // Отправляем данные
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Не верно'); // Если статус не успешный
+                }
+                return response.json();
+            })
+            .then(data => {
+                successMessage.textContent = 'Успешно'; // Успешное сообщение
+                successMessage.style.display = 'block';
+                errorMessage.style.display = 'none'; // Скрыть сообщение об ошибке
+
+                // Задержка перед перенаправлением (например, 2 секунды)
+                setTimeout(() => {
+                    window.location.href = "success.html"; // Перенаправляем на страницу успеха
+                }, 2000);
+            })
+            .catch(error => {
+                errorMessage.textContent = error.message; // Сообщение об ошибке
+                errorMessage.style.display = 'block';
+                successMessage.style.display = 'none'; // Скрыть сообщение об успехе
+            });
+        }
+    </script>
+</body>
+</html>

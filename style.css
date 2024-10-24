@@ -1,0 +1,64 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    margin: 0;
+    padding: 0;
+}
+
+.login-container {
+    width: 300px;
+    margin: 100px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    text-align: center;
+}
+
+label {
+    display: block;
+    margin: 10px 0 5px;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    box-sizing: border-box;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #5cb85c;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #4cae4c;
+}
+
+p {
+    text-align: center;
+}
+body {
+    background-image: url('https://i.pinimg.com/originals/28/c8/70/28c87027c6b593e002fd7af6fce17e90.jpg'); /* Укажите путь к вашему изображению */
+    background-size: cover; /* Изображение будет растягиваться на весь экран */
+    background-position: center; /* Центрируем изображение */
+    background-repeat: no-repeat; /* Избегаем повторения изображения */
+}
+
+.login-container {
+    background-color: rgba(255, 255, 255, 0.8); /* Прозрачный белый фон для контейнера авторизации */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
